@@ -14,7 +14,7 @@ int x, y, read0, read1;
 uint64_t    reocrder_cnt    = 0;
 
 //ループ回数定義
-const uint64_t LOOP_CNT = 1000000;
+const uint64_t LOOP_CNT     = 1000000;
 
 //関数プロトタイプ定義
 void* thread0_impl(void *param);
@@ -53,7 +53,7 @@ int main() {
     if (reocrder_cnt <= 0) {
         printf("NO reordering detected during %" PRIu64 "iterations", LOOP_CNT);
     } else {
-        printf("reorderoing happend  %" PRIu64 " times. during  %" PRIu64 "iterations\n",reocrder_cnt, LOOP_CNT);
+        printf("reorderoing happend  %" PRIu64 " times. during  %" PRIu64 " iterations\n",reocrder_cnt, LOOP_CNT);
     }
 
     return 0;
@@ -66,7 +66,7 @@ void* thread0_impl(void *param) {
 
         sem_wait(&sem_begin0);
 
-        x=1;
+        x = 1;
 
         //コンパイラによる並び替えだけを防ぐ
         asm volatile("" ::: "memory");
